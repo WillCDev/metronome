@@ -1,0 +1,14 @@
+{
+  "printWidth": 90,
+  "singleQuote": true,
+  "semi": false,
+  "trailingComma": "es5",
+  "overrides": [
+    {
+      "files": ["*.css", "*.json"],
+      "options": {
+        "singleQuote": false
+      }
+    }
+  ]
+}
