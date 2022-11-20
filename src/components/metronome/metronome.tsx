@@ -31,9 +31,11 @@ export const Metronome: FC = () => {
         <div className={styles.bpm}>
           <div className={styles.bpmDisplay}>
             <ControlWheel items={METRONOME_ITEMS} selectedItem={bpm} onSelect={setBpm} />
+            {detecting && <div className={styles.detectingIndicator}>Detecting...</div>}
           </div>
           <span>BPM</span>
         </div>
+
         <button
           className={joinClassNames([styles.playButton, playing && styles.playing])}
           onClick={togglePlaying}
@@ -44,7 +46,6 @@ export const Metronome: FC = () => {
 
       <button onClick={tap} className={styles.beatButton}>
         <h4>Tap</h4>
-        {detecting && 'Detecting...'}
       </button>
     </div>
   )
