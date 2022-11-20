@@ -1,0 +1,28 @@
+.viewport {
+  height: 50px;
+  width: 100%;
+  overflow: hidden;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.container {
+  height: 40px;
+  width: 100%;
+  perspective: 1000px;
+  margin: auto auto;
+}
+
+.slide {
+  @include flex-centered-content;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 5px auto;
+  text-align: center;
+  backface-visibility: hidden;
+  opacity: 0;
+}
