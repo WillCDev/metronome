@@ -1,7 +1,7 @@
 import { EmblaCarouselType } from 'embla-carousel-react'
 import { CSSProperties } from 'react'
 
-const WHEEL_ITEM_SIZE = 32
+const WHEEL_ITEM_SIZE = 50
 const WHEEL_ITEM_COUNT = 40
 const WHEEL_ITEMS_IN_VIEW = 3
 

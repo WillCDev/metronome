@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { MIN_BPM } from '../Metronome.config'
 
-const NUM_OF_INTERVALS_FOR_DETECTION = 4
+const NUM_OF_INTERVALS_FOR_DETECTION = 8
 const ONE_MINUTE = 60000
 const MAX_WAIT_AFTER_LAST_TAP = ONE_MINUTE / MIN_BPM
 const MAX_WAIT_BETWEEN_DETECTION_ATTEMPTS = (ONE_MINUTE / MIN_BPM) * 2.1

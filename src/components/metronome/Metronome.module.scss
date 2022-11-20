@@ -1,7 +1,7 @@
 .wrapper {
   @include flex-centered-content;
   width: 80%;
-  max-width: 500px;
+  max-width: 450px;
   min-height: 120px;
   background: $color-light-grey;
   border-radius: $container-radius;
@@ -20,8 +20,8 @@
   transition: $transition-speed-normal;
 
   .bpmDisplay {
-    width: 90px;
-    font-size: 2rem;
+    width: 140px;
+    font-size: 2.2rem;
     font-weight: bold;
     background: $color-super-light-grey;
     cursor: grab;
@@ -45,5 +45,21 @@
 
   &.playing {
     background-color: $color-red-brown;
+  }
+}
+
+.beatButton {
+  @include button-with-hover;
+  height: 140px;
+  width: 140px;
+  margin-left: $spacing-xl;
+  border-radius: 100%;
+  font-size: 2.2rem;
+  background-color: $color-deep-blue;
+  color: $color-white;
+  transition: $transition-speed-normal;
+
+  &:active {
+    background-color: $color-light-blue;
   }
 }
