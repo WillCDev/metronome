@@ -1,7 +1,17 @@
-// Colors
 @mixin flex-centered-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+@mixin button-with-hover {
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 0.7rem #999;
+  }
+  &:active {
+    transform: scale(1);
+    box-shadow: none;
+  }
 }
