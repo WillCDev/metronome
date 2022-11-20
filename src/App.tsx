@@ -3,7 +3,7 @@ import { Metronome } from '@/components/Metronome'
 import styles from './App.module.scss'
 
 const App: FC = () => (
-  <main className={styles.wrapper}>
+  <main className={styles.app}>
     <Metronome />
   </main>
 )

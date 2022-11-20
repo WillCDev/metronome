@@ -12,7 +12,6 @@ export const Metronome: FC = () => {
 
   const [bpm, setBpm] = useState<number>(DEFAULT_BPM)
   const setTempo = (targetBpm: number): void => {
-    console.log(targetBpm)
     if (targetBpm >= MAX_BPM) setBpm(MAX_BPM)
     else if (targetBpm <= MIN_BPM) setBpm(MIN_BPM)
     else setBpm(targetBpm)

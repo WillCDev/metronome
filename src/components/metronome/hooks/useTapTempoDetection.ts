@@ -9,6 +9,7 @@ import {
 interface Args {
   onTempoDetection: (tempo: number) => void
 }
+
 interface ReturnType {
   tap: () => void
   detecting: boolean
