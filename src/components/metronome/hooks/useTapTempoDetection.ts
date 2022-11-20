@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { MIN_BPM } from '../Metronome.config'
 
-const NUM_OF_INTERVALS_FOR_DETECTION = 8
+const NUM_OF_INTERVALS_FOR_DETECTION = 4
 const ONE_MINUTE = 60000
 const MAX_WAIT_AFTER_LAST_TAP = ONE_MINUTE / MIN_BPM
 const MAX_WAIT_BETWEEN_DETECTION_ATTEMPTS = (ONE_MINUTE / MIN_BPM) * 2.1
@@ -22,7 +22,7 @@ const calculateTempo = (events: number[]): number => {
   return Math.round(ONE_MINUTE / meanInterval)
 }
 
-export const useTapTempoDetection = (args: Args): ReturnType => {
+export const useTapTempoDetection = ({ onTempoDetection }: Args): ReturnType => {
   const [detecting, setDetecting] = useState(false)
   const timestamps = useRef<number[]>([])
   const lastTapTimer = useRef<number>()
@@ -33,7 +33,10 @@ export const useTapTempoDetection = (args: Args): ReturnType => {
     // for a while and possibly changing speed, we're able to base our detection
     // on the most recent events and make a more reliable estimate of the users intention
     const lastNTimestamps = timestamps.current.slice(-NUM_OF_INTERVALS_FOR_DETECTION)
-    args.onTempoDetection(calculateTempo(lastNTimestamps))
+
+    if (lastNTimestamps.length > 1) {
+      onTempoDetection(calculateTempo(lastNTimestamps))
+    }
   }
 
   const reset = (): void => {
