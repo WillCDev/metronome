@@ -7,19 +7,19 @@ import styles from './Metronome.module.scss'
 import { useAudioMetronome } from './hooks/useAudioMetronome'
 
 export const Metronome: FC = () => {
-  const [bpm, setBpm] = useState<number>(DEFAULT_BPM)
   const [playing, setPlaying] = useState(false)
-
-  const { tap, detecting } = useTapTempoDetection({ onTempoDetection: setBpm })
-  useAudioMetronome(bpm, playing)
-
   const togglePlaying = (): void => setPlaying((playing) => !playing)
 
+  const [bpm, setBpm] = useState<number>(DEFAULT_BPM)
   const setTempo = (targetBpm: number): void => {
+    console.log(targetBpm)
     if (targetBpm >= MAX_BPM) setBpm(MAX_BPM)
     else if (targetBpm <= MIN_BPM) setBpm(MIN_BPM)
     else setBpm(targetBpm)
   }
+
+  const { tap, detecting } = useTapTempoDetection({ onTempoDetection: setTempo })
+  useAudioMetronome(bpm, playing)
 
   const handleKeyBoardEvent = (event: KeyboardEvent): void => {
     if (event.key === 'ArrowDown') setTempo(bpm - 1)
