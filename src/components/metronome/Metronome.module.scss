@@ -56,12 +56,12 @@
   margin-left: $spacing-xl;
   border-radius: 100%;
   font-size: 2.2rem;
-  background-color: $color-deep-blue;
+  background-color: $color-light-blue;
   color: $color-white;
   transition: $transition-speed-normal;
 
   &:active {
-    background-color: $color-light-blue;
+    background-color: $color-deep-blue;
   }
 }
 

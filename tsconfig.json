@@ -20,6 +20,6 @@
       "@/*": ["src/*"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "public/metronome.worker.js"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

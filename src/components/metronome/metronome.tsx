@@ -4,14 +4,16 @@ import { ControlWheel } from '@/components/common/ControlWheel'
 import { DEFAULT_BPM, MAX_BPM, METRONOME_ITEMS, MIN_BPM } from './Metronome.config'
 import { useTapTempoDetection } from './hooks/useTapTempoDetection'
 import styles from './Metronome.module.scss'
+import { useAudioMetronome } from './hooks/useAudioMetronome'
 
 export const Metronome: FC = () => {
   const [bpm, setBpm] = useState<number>(DEFAULT_BPM)
   const [playing, setPlaying] = useState(false)
 
   const { tap, detecting } = useTapTempoDetection({ onTempoDetection: setBpm })
+  useAudioMetronome(bpm, playing)
 
-  const togglePlaying = (): void => setPlaying(!playing)
+  const togglePlaying = (): void => setPlaying((playing) => !playing)
 
   const setTempo = (targetBpm: number): void => {
     if (targetBpm >= MAX_BPM) setBpm(MAX_BPM)
@@ -22,7 +24,7 @@ export const Metronome: FC = () => {
   const handleKeyBoardEvent = (event: KeyboardEvent): void => {
     if (event.key === 'ArrowDown') setTempo(bpm - 1)
     else if (event.key === 'ArrowUp') setTempo(bpm + 1)
-    else if (event.key === 'SpaceBar') togglePlaying()
+    else if (event.code === 'Space') togglePlaying()
   }
 
   return (
