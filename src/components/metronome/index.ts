@@ -1,1 +1,1 @@
-export * from './metronome'
+export * from './Metronome'

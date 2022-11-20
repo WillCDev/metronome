@@ -1,0 +1,12 @@
+.wrapper {
+  @include flex-centered-content;
+  width: 100%;
+  max-width: 500px;
+  min-height: 150px;
+  background: $color-light-grey;
+  border-radius: $container-radius;
+  border: 3px solid $color-light-blue;
+  padding: $spacing-m2 $spacing-m;
+  font-size: 1.5rem;
+  transition: $transition-speed-normal;
+}
