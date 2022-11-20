@@ -21,3 +21,10 @@ body {
   background-color: $color-deep-blue;
   color: $color-deep-blue;
 }
+
+button {
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: $transition-speed-fast;
+}

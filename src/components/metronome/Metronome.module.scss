@@ -1,8 +1,8 @@
 .wrapper {
   @include flex-centered-content;
-  width: 100%;
+  width: 80%;
   max-width: 500px;
-  min-height: 150px;
+  min-height: 120px;
   background: $color-light-grey;
   border-radius: $container-radius;
   border: 3px solid $color-light-blue;
@@ -31,5 +31,19 @@
     &:hover {
       transform: scale(1.05);
     }
+  }
+}
+
+.playButton {
+  margin-top: $spacing-l;
+  font-size: 1.4rem;
+  padding: $spacing-sm;
+  width: 120px;
+  background-color: $color-green;
+  color: $color-white;
+  @include button-with-hover;
+
+  &.playing {
+    background-color: $color-red-brown;
   }
 }
