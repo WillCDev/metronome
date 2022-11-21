@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Metronome } from '@/components/Metronome'
+import { Metronome } from '@/components/Metronomee'
 import styles from './App.module.scss'
 
 const App: FC = () => (
