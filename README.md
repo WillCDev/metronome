@@ -5,7 +5,7 @@ Metronome is....well it's a metronome.
 ### **Features:**
 
 - Start / Stop button to save your sanity.
-- Manually set the tempo by using the built in "BPM WHeel" and dragging it to the tempo you want.
+- Manually set the tempo by using the built in "BPM Wheel" and dragging it to the tempo you want.
 - Adjust the BPM incrementally using the up and down arrows on your keyboard.
 - "Tap" a tempo and the metronome will auto detect the correct tempo.
 
@@ -41,24 +41,24 @@ I simply haven't had enough time to write any yet, but they're very much TODO.
 
 ### **Beat Detection**
 
-I've used a fairly crude method of beat detection that averages the intervals of the last n (configurable), tap events.
-I've also added various timers to prioritise UX and make sure the user is never waiting to long for a detection even to trigger, even if they keep clicking.
+I've used a fairly crude method of beat detection that averages the intervals of the last n (configurable) tap events.
+I've also added various timers to prioritize UX and make sure the user is never waiting to long for a detection event to trigger, even if they keep clicking.
 
-Most aspects of the algorithm are configurable from a single confiugration file for easy refinement of the detection accuracy and timing moving forway.
+Most aspects of the algorithm are configurable from a single configuration file for easy refinement of the detection accuracy and timing moving forward.
 
 I think there's definitely room to improve this algorithm, which is discussed below, but I think for now this solution is sufficient for the scope of the task.
 
 ### **Audio Click Generator**
 
-This is an interesting topic. The obvious solution to avoid is using native JS timers on the main thread as these are quite predictably unpredictable in their accuracy. This led me to do a little research around the most accurate ways to produce a steady beat in th browser.
+This is an interesting topic. The obvious solution to avoid is using native JS timers on the main thread as these are quite predictably unpredictable in their accuracy. This led me to do a little research around the most accurate ways to produce a steady beat in the browser.
 
 I discovered this great article https://meowni.ca/posts/metronomes/ which laid out some fun experiments to understand the pros and cons of different approaches. I used this as the basis of my solution.
 
-In the end I decided to offload the timers onto a dedicated WebWorker which in turn callback to the main thread to trigger the click sound. This gives a lot more predictability to the beat as the WebWorker is a single thread that is only running the timer.
+In the end I decided to offload the timers onto a dedicated WebWorker which in turn calls back to the main thread to trigger the click sound. This gives a lot more predictability to the beat as the WebWorker is a single thread that is only running the timer.
 
-In theory, there is still the possibly of instability if there is work happening on the main thread that would cause a delay in the processing of the WebWorker callback, as is documented in the above link, however in reality in the context of our app this is not the case, and so this solution is good. THe trade of being that we get a slightly cleaner more elegant solution than using pre-scheduled events.
+In theory, there is still the possibly of instability if there is work happening on the main thread that would cause a delay in the processing of the WebWorker callback, as is documented in the above link, however in reality in the context of our app this is not a concern, and so this solution is good. The trade of being that we get a slightly cleaner more elegant solution than using pre-scheduled events.
 
-However if in the future this was no longer the case, obviously it makes sense to refactor to a "pre-schedule WebAudio events" patterns, and the Metronome class is designed to make this refactor as simple as possible.
+However if in the future this was no longer the case, obviously it makes sense to refactor to a "pre-scheduled WebAudio events" patterns, and the Metronome class is designed to make this refactor as simple as possible.
 
 ## **Setup**
 
