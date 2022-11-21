@@ -30,7 +30,7 @@ export const useTapTempoDetection = ({ onTempoDetection }: Args): ReturnType => 
   const timeElapsedSinceDetection = useRef<number>()
 
   const detectTempo = (): void => {
-    // Taking the last "N" events means the if the user has been clicking
+    // Taking the last N events means that if the user has been clicking
     // for a while and possibly changing speed, we're able to base our detection
     // on the most recent events and make a more reliable estimate of the users intention
     const lastNTimestamps = timestamps.current.slice(-NUM_OF_INTERVALS_FOR_DETECTION)
