@@ -34,8 +34,7 @@ Metronome is....well it's a metronome.
 
 ### **Styling**
 
-I've use Sass with css modules for easy namespacing of generated classes.
-I've used a central shared set of variables and mixins that are exposed globally using the Vite config for common styling attributes.
+I've used Sass with css modules for easy namespacing of generated classes, leveraging a central shared set of variables and mixins that are exposed globally using the Vite config for common styling attributes.
 
 We're using PostCSS / Autoprefixer to add vendor prefixing to our compiled CSS in line with our browserlist configs.
 
