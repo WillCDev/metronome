@@ -11,12 +11,6 @@ Metronome is....well it's a metronome.
 
 <br/>
 
-## **Screenshots**
-
-`![Writing](https://unsplash.com/photos/VBPzRgd7gfc)`
-
-<br />
-
 ## **Technologies / Methodologies / Approach**
 
 ### **Frameworks / Libs**
